@@ -63,3 +63,30 @@ header p{
     background-color: #5B21B6;
     cursor:pointer;
 }
+.form-section{
+    text-align: center;
+    padding:60px 20px;
+}
+.form-section h2{
+    font-size: 35px;
+    color:#6D28D9;
+    margin-bottom: 30px;
+}
+form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+}
+label{
+    font-size: 16px;
+    color:#333;
+    font-weight: bold;
+}
+input, select{
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    width:300px;
+}
