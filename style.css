@@ -90,3 +90,16 @@ input, select{
     font-size: 15px;
     width:300px;
 }
+form button{
+    background-color: #6D28D9;
+    color: white;
+    border: none;
+    padding:12px 25px;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+form button:hover{
+    background-color: #5B21B6;
+}
