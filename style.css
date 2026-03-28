@@ -103,3 +103,14 @@ form button{
 form button:hover{
     background-color: #5B21B6;
 }
+.result{
+    max-width: 800px;
+    margin: 40px auto;
+    padding:30px;
+    background: linear-gradient(135deg, #b5a6c5, #b3add2);
+    border-radius: 15px;
+    border-left: 5px solid #6D28D9;
+    line-height: 1.8;
+    font-size: 16px;
+    white-space: pre-wrap;
+}

@@ -10,28 +10,35 @@ document.querySelector('form').addEventListener('submit',function(e){
     document.querySelector('button').disabled = true;
     document.querySelector('.result').innerHTML = "Planning your trip...";
     var prompt="Plan a" + days + "day trip to" + "for a" + budget + "budget traveller who loves" + style + ". Give day-by-day itinerary with morning, afternoon, evening activities.";
-    fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + apiKey, {
-        method:"POST",
+    fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
         headers: {
-            "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey
         },
         body: JSON.stringify({
-            contents: [{
-                parts: [{ text: prompt }]
-            }]
+        model: "nvidia/nemotron-3-super-120b-a12b:free",
+        messages: [{
+            role: "user",
+            content: prompt
+        }]
         })
     })
     .then(function(response) {
         return response.json();
-        })
-        .then(function(data) {
-        console.log(data);
-        if(data.candidates && data.candidates[0]) {
-            var result = data.candidates[0].content.parts[0].text;
-            document.querySelector('.result').innerHTML = result;
-        } else {
-            document.querySelector('.result').innerHTML = "Something went wrong, try again!";
-            document.querySelector('button').disabled = false;
-        }
+    })
+    .then(function(data) {
+    console.log(data);
+    if(data.choices && data.choices[0]) {
+        var result = data.choices[0].message.content;
+        document.querySelector('.result').innerHTML = result
+            .replace(/### (.*)/g, '<h3>$1</h3>')
+            .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
+            .replace(/\n/g, '<br>');
+        document.querySelector('button').disabled = false;
+    } else {
+        document.querySelector('.result').innerHTML = "Something went wrong, try again!";
+        document.querySelector('button').disabled = false;
+    }
     })
 })
