@@ -114,3 +114,37 @@ form button:hover{
     font-size: 16px;
     white-space: pre-wrap;
 }
+.nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.nav-button{
+    background-color: rgba(255,255,255,0.15);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.6);
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+.nav button:hover {
+    background-color: #6D28D9;
+    color: white;
+  }
+#user-name{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgba(255,255,255,0.2);
+    padding:8px 16px;
+    border-radius: 20px;
+}
