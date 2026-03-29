@@ -1,3 +1,8 @@
+var selectedCity="";
+function selectCity(city){
+    selectedCity=city;
+    document.querySelector('.form-section').scrollIntoView({behavior:"smooth"});
+}
 document.querySelector('form').addEventListener('submit',function(e){
     e.preventDefault();
     var days=document.querySelector('input').value;
@@ -9,7 +14,7 @@ document.querySelector('form').addEventListener('submit',function(e){
     }
     document.querySelector('button').disabled = true;
     document.querySelector('.result').innerHTML = "Planning your trip...";
-    var prompt="Plan a" + days + "day trip to" + "for a" + budget + "budget traveller who loves" + style + ". Give day-by-day itinerary with morning, afternoon, evening activities.";
+    var prompt="Plan a" + days + "day trip to" + selectedCity + "for a" + budget + "budget traveller who loves" + style + ". Give day-by-day itinerary with morning, afternoon, evening activities.";
     fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
