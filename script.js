@@ -40,6 +40,10 @@ document.querySelector('form').addEventListener('submit',function(e){
             .replace(/### (.*)/g, '<h3>$1</h3>')
             .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
             .replace(/\n/g, '<br>');
+        document.getElementById('save-btn').style.display='block';
+        document.getElementById('save-btn').onclick=function(){
+            saveTrip(selectedCity,days,budget,style,result);
+        }
         document.querySelector('button').disabled = false;
     } else {
         document.querySelector('.result').innerHTML = "Something went wrong, try again!";

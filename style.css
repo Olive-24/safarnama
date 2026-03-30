@@ -148,3 +148,21 @@ form button:hover{
     padding:8px 16px;
     border-radius: 20px;
 }
+#save-btn {
+    display: block;
+    margin: 20px auto;
+    background-color: rgba(109, 40, 217, 0.15);
+    color: #6D28D9;
+    border: 2px solid #6D28D9;
+    padding: 12px 35px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  #save-btn:hover {
+    background-color: #6D28D9;
+    color: white;
+  }

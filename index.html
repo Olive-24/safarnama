@@ -9,6 +9,7 @@
 <header>
   <div class="nav">
     <scan id="user-name"></scan>
+    <button onclick="showMyTrips()">My Trips</button>
     <button id="login-btn" onclick="loginWithGoogle()">Login With Google</button>
     <button id="logout-btn" style="display:none" onclick="logout()">Logout</button>
   </div>
@@ -58,6 +59,11 @@
 <div class="result">
 
 </div>
+<div class="my-trips" id="my-trips" style="display: none;">
+  <h2>My Trips</h2>
+  <div id="trips-list"></div>
+</div>
+<button id="save-btn" style="display:none">Save My Trip</button>
 <script type="module" src="firebase.js"></script>
 <script src="config.js"></script>
 <script src="script.js"></script>
