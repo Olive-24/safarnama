@@ -1,3 +1,24 @@
+window.onload = function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var tripId = urlParams.get('tripId');
+
+    if(tripId) {
+    import("https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js")
+    .then(function(firestoreModule) {
+        const { getDoc, doc } = firestoreModule;
+        getDoc(doc(db, "trips", tripId)).then(function(docSnap) {
+        if(docSnap.exists()) {
+            var trip = docSnap.data();
+            document.querySelector('.result').innerHTML = trip.itinerary
+            .replace(/### (.*)/g, '<h3>$1</h3>')
+            .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
+            .replace(/\n/g, '<br>');
+            document.querySelector('.result').scrollIntoView({behavior: 'smooth'});
+        }
+        });
+    });
+    }
+}
 var selectedCity="";
 function selectCity(city){
     selectedCity=city;
